@@ -1,5 +1,3 @@
-import 'dart:js_util';
-
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyFirstApp());
@@ -45,7 +43,7 @@ class BodyListView extends StatelessWidget {
           return ListTile(
             title: Text(
               item.heading,
-              style: Theme.of(context).textTheme.headline1,
+              style: Theme.of(context).textTheme.headline6,
             ),
           );
         } else if (item is MessageItem) {
