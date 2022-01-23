@@ -28,11 +28,16 @@ class BodyListView extends StatelessWidget {
   }
 
   Widget _myListView() {
-    final List<ListItem> items = List<ListItem>.generate(
-        10000,
-        (i) => i % 6 == 0
-            ? HeadingItem('Heading ${i}')
-            : MessageItem('Sender $i', 'Message body $i'));
+    int messageIndex = 0;
+    int headerIndex = 0;
+    final List<ListItem> items = List<ListItem>.generate(10000, (i) {
+      if (i % 6 == 0) {
+        return HeadingItem('Heading ${++headerIndex}');
+      } else {
+        return MessageItem(
+            'Sender ${++messageIndex}', 'Message body $messageIndex');
+      }
+    });
 
     return ListView.builder(
       itemCount: items.length,
